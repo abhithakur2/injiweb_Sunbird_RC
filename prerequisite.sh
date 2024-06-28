@@ -100,3 +100,18 @@ install_node
 install_pm2
 
 echo "Node.js and PM2 have been installed successfully."
+
+#Install JAVA
+install_JAVA() {
+    sudo apt install openjdk-11-jdk -y
+
+    echo "Verifying java installation..."
+    if java --version; then
+        echo "java installed successfully."
+    else
+        echo "java installation failed."
+        exit 1
+    fi
+}
+
+
