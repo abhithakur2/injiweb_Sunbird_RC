@@ -5,7 +5,7 @@ services:
     build: 
       context: ./oidc
       dockerfile: Dockerfile
-    image: oidc:latest
+    image: oidc:01
     restart: always
     ports:
-      - "3000:3000"
+      - "3004:3004"
