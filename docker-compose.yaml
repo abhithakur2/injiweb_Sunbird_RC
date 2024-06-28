@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  oidc:
+    build: 
+      context: ./oidc
+      dockerfile: Dockerfile
+    image: oidc:latest
+    restart: always
+    ports:
+      - "3000:3000"
