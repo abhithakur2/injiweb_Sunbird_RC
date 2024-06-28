@@ -35,6 +35,8 @@ Run the script:
 
 Install the application setup:
 
+cd inji-certify
+
 Make the install.sh script executable:
 
 chmod +x install.sh
