@@ -14,3 +14,29 @@ chmod +x install.sh
 sudo ./install.sh
 
 echo "Both docker-compose files have been executed."
+
+
+# Navigate to the project directory
+cd ./mimoto/mimoto
+
+# Build the project using Maven
+echo "Building the project with Maven..."
+mvn clean package
+
+# Check if the build was successful
+if [ $? -ne 0 ]; then
+  echo "Maven build failed!"
+  exit 1
+fi
+
+# Run the application with PM2 and set the environment variable
+echo "Running the application with PM2..."
+pm2 start target/*.jar --name mimoto-app --interpreter none -- -Dspring.profiles.active=local
+
+# Check if the application started successfully
+if [ $? -ne 0 ]; then
+  echo "Failed to start the application with PM2!"
+  exit 1
+fi
+
+echo "Application is running with PM2."
