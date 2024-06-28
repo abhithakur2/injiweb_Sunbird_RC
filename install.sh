@@ -15,7 +15,7 @@ sudo ./install.sh
 
 echo "Both docker-compose files have been executed."
 
-
+cd ..
 # Navigate to the project directory
 cd ./mimoto/mimoto
 
@@ -41,7 +41,7 @@ fi
 
 echo "Application is running with PM2."
 
-
+cd ../..
 # Navigate to the Node.js project directory
 cd ./mimoto/inji-web
 
