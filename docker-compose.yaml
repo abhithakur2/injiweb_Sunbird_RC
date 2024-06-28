@@ -3,7 +3,7 @@ version: '3'
 services:
   oidc:
     build: 
-      context: ./oidc
+      context: ./oidc-ui
       dockerfile: Dockerfile
     image: oidc:01
     restart: always
