@@ -99,6 +99,8 @@ install_node
 # Install PM2
 install_pm2
 
+install_JAVA
+
 echo "Node.js and PM2 have been installed successfully."
 ######################################################
 set -e
