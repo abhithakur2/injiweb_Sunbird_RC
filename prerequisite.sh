@@ -93,18 +93,6 @@ install_pm2() {
     fi
 }
 
-# Install Node.js
-install_node
-
-# Install PM2
-install_pm2
-
-install_JAVA
-
-echo "Node.js and PM2 have been installed successfully."
-######################################################
-set -e
-#Install JAVA
 install_JAVA() {
     sudo apt install openjdk-11-jdk -y
 
@@ -116,5 +104,16 @@ install_JAVA() {
         exit 1
     fi
 }
+# Install Node.js
+install_node
+
+# Install PM2
+install_pm2
+# Install java
+install_JAVA
+
+echo "Node.js, java, and PM2 have been installed successfully."
+
+
 
 
