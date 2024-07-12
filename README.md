@@ -54,3 +54,10 @@ Update the configuration to replace any placeholders with your domain name.
 Restart Nginx to apply the changes:
 
 sudo systemctl restart nginx By following these steps, you will set up the VM, install the necessary prerequisites, deploy your application, and configure Nginx.
+
+
+-----------
+NOTE !
+-----------
+
+We need to change the URLs in  the Application .env oidc_ui, Inji_web, and Inji_verify  before running the install.sh
