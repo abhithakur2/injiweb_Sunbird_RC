@@ -8,7 +8,7 @@ echo "Running docker-compose in the current directory..."
 docker-compose up --build -d
 
 # Run the docker-compose file in sunbirds /docs/docker-compose/
-echo "Running docker-compose in esignet and subbirds RC/ directory..."
+echo "Running docker-compose in esignet and subbirds RC/injicertify version 0.8.x  directory..."
 cd inji-certify/
 chmod +x install.sh
 sudo ./install.sh
