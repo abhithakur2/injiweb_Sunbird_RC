@@ -64,5 +64,30 @@ if [ $? -ne 0 ]; then
   echo "Failed to start the application with PM2!"
   exit 1
 fi
+###############
+##inji-verify##
+###############
+cd ../..
+cd ./inji-verify/inji-verify
+
+# Install the dependencies using npm
+echo "Installing dependencies with npm..."
+npm install
+
+# Check if npm install was successful
+if [ $? -ne 0 ]; then
+  echo "npm install failed!"
+  exit 1
+fi
+
+# Start the application with PM2
+echo "Starting the application with PM2..."
+pm2 start npm --name "injiverify" --run start
+
+# Check if the application started successfully
+if [ $? -ne 0 ]; then
+  echo "Failed to start the application with PM2!"
+  exit 1
+fi
 
 echo "Node.js application is running with PM2."
