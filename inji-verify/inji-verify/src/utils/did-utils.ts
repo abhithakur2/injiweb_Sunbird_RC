@@ -9,11 +9,7 @@ const getDIDMethod = (did: string) => {
 }
 
 export const resolveDid = async (did: string)  => {
-    console.log("===ee33====")
     const didMethod = getDIDMethod(did);
-    console.log("===didMethod===",didMethod)
-    console.log("===SUPPORTED_DID_METHODS===",SUPPORTED_DID_METHODS)
-
     if (SUPPORTED_DID_METHODS.indexOf(didMethod) === -1)
         throw new Error(`Unsupported DID method: ${didMethod}. DID: ${did}`);
     const webResolver = getResolver();
