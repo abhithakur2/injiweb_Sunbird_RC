@@ -34,8 +34,7 @@ handle_input() {
         2)
             install_esignet
             ;;
-        0)
-            echo "Exiting..."
+        0)  echo "Exit"
             exit 0
             ;;
         *)

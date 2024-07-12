@@ -19,19 +19,26 @@ cd ..
 # Navigate to the project directory
 cd ./mimoto/mimoto
 
+# Install maven
+apt install maven -y
+
+mvn -version
+
 # Build the project using Maven
 echo "Building the project with Maven..."
-mvn clean package
+
+mvn clean install  -Dgpg.skip
 
 # Check if the build was successful
 if [ $? -ne 0 ]; then
   echo "Maven build failed!"
   exit 1
 fi
-
+cd ..
 # Run the application with PM2 and set the environment variable
 echo "Running the application with PM2..."
-pm2 start target/*.jar --name mimoto-app --interpreter none -- -Dspring.profiles.active=local
+
+pm2 start mimoto.sh --interpreter bash --name mimoto
 
 # Check if the application started successfully
 if [ $? -ne 0 ]; then
@@ -41,9 +48,10 @@ fi
 
 echo "Application is running with PM2."
 
-cd ../..
+cd ..
 # Navigate to the Node.js project directory
-cd ./mimoto/inji-web
+
+cd ./mimoto/inji-web/inji-web
 
 # Install the dependencies using npm
 echo "Installing dependencies with npm..."
@@ -57,17 +65,17 @@ fi
 
 # Start the application with PM2
 echo "Starting the application with PM2..."
-pm2 start app.js --name inji-web --env local
 
+pm2 start npm --name "inji-web" -- start
 # Check if the application started successfully
 if [ $? -ne 0 ]; then
   echo "Failed to start the application with PM2!"
   exit 1
 fi
-###############
-##inji-verify##
-###############
-cd ../..
+# inji-verify
+
+cd ../../..
+
 cd ./inji-verify/inji-verify
 
 # Install the dependencies using npm
@@ -82,7 +90,7 @@ fi
 
 # Start the application with PM2
 echo "Starting the application with PM2..."
-pm2 start npm --name "injiverify" --run start
+pm2 start npm --name "injiverify" -- start
 
 # Check if the application started successfully
 if [ $? -ne 0 ]; then
