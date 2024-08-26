@@ -8,4 +8,4 @@ services:
     image: oidc:01
     restart: always
     ports:
-      - "3004:3004"
+      - "4005:3004"
